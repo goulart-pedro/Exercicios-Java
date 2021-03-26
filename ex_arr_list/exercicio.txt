@@ -1,0 +1,253 @@
+Questão 1:
+
+package exercicioArrList;
+
+import java.util.ArrayList;
+
+public class ex001 {
+    public static void main(String[] args) {
+
+        ArrayList<String> arr = new ArrayList<String>();
+        arr.add("Vermelho");
+        arr.add("Azul");
+        arr.add("Bege");
+        arr.add("Verde");
+        arr.add("Cinza");
+        System.out.println(arr);
+    }
+}
+
+Questão 2:
+
+package exercicioArrList;
+
+import java.util.ArrayList;
+
+public class ex002 {
+    public static void main(String[] args) {
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        arr.add(1);
+        arr.add(2);
+        arr.add(3);
+        for (Integer item : arr) {
+            System.out.printf("O item atual é %d\n", item);
+        }
+    }
+}
+
+Questão 3:
+
+package exercicioArrList;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ex003 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<String> arr = new ArrayList<String>();
+        arr.add("Vermelho");
+        arr.add("Azul");
+        arr.add("Bege");
+        arr.add("Verde");
+        arr.add("Cinza");
+
+        printArray(arr);
+        adicionarItem(arr, input);
+        input.close();
+        printArray(arr);
+    }
+
+    public static void printArray(ArrayList<String> array) {
+        System.out.println("Itens atuais no array\n" + array); // Printa o Array
+    }
+
+    public static void adicionarItem(ArrayList<String> array, Scanner input) {
+        System.out.printf("Digite o novo item a ser inserido na posição 1 \n");
+        array.add(0, input.nextLine());
+
+    }
+
+}
+
+Questão 4:
+
+package exercicioArrList;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ex004 {
+    public static void main(String[] args) {
+
+        ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
+        ArrayList<String> coluna1 = new ArrayList<String>();
+        ArrayList<String> coluna2 = new ArrayList<String>();
+        ArrayList<String> coluna3 = new ArrayList<String>();
+
+        coluna1.add("item0");
+        coluna1.add("item1");
+        coluna1.add("item2");
+
+        coluna2.add("item3");
+        coluna2.add("item4");
+        coluna2.add("item5");
+
+        coluna3.add("item6");
+        coluna3.add("item7");
+        coluna3.add("item8");
+
+        matriz.add(coluna1);
+        matriz.add(coluna2);
+        matriz.add(coluna3);
+
+        String item = getItem(matriz);
+        printItem(item);
+
+    }
+
+    public static String getItem(ArrayList<ArrayList<String>> array) {
+        Scanner input = new Scanner(System.in);
+        System.out.printf("Selecione uma coluna em %d\s", array.size());
+        int coluna = input.nextInt();
+        System.out.printf("Seleciona uma linha em %d\s", array.get(coluna).size());
+        int linha = input.nextInt();
+        input.close();
+        return array.get(coluna).get(linha); // Retorna o item dentro do array informado
+
+    }
+
+    public static void printItem(String item) {
+        System.out.printf("Tu selecionastes \"%s\"\n", item); // Printa o item
+    }
+
+}
+
+Questão 5:
+
+package exercicioArrList;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ex005 {
+    public static void main(String[] args) {
+        ArrayList<String> array = new ArrayList<String>();
+        array.add("Frankfurt");
+        array.add("Berlin");
+        array.add("Brandenburg");
+        array.add("Pommerland");
+        printArray(array);
+        adicionarItem(array);
+        printArray(array);
+    }
+
+    public static void printArray(ArrayList<String> array) {
+        System.out.println("Itens atualmente no array\n" + array); // Printa o Array
+    }
+
+    public static void adicionarItem(ArrayList<String> array) {
+        Scanner input = new Scanner(System.in);
+        int index; // Recebe o indice do item
+        String item; // Recebe o novo item
+
+        System.out.printf("Digite qual a posição do item a ser atualizado");
+        index = input.nextInt();
+
+        System.out.printf("Digite o novo item a ser inserido\n");
+        item = input.next();
+
+        array.set(index, item); // adiciona ao array um item na posição especificada
+        input.close();
+
+    }
+}
+
+Questão 6:
+
+package exercicioArrList;
+
+import java.util.ArrayList;
+
+public class ex006 {
+    public static void main(String[] args) {
+        ArrayList<String> array = new ArrayList<String>();
+        array.add("Frankfurt");
+        array.add("Berlin");
+        array.add("Brandenburg");
+        array.add("Pommerland");
+
+        int index = 3; // indice do item a ser removido
+        printArray(array);
+        removerItem(array, index);
+        printArray(array);
+    }
+
+    public static void printArray(ArrayList<String> array) {
+        System.out.println("Itens atualmente no array\n" + array); // Printa o Array
+    }
+
+    public static void removerItem(ArrayList<String> array, int index) {
+        array.remove(index); // Remove o item especificado no index
+
+    }
+}
+
+Questão 7:
+
+package exercicioArrList;
+
+import java.util.ArrayList;
+
+public class ex007 {
+    public static void main(String[] args) {
+
+        ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+
+        alunos.add(new Aluno("Pedro Goulart", Sexo.MASCULINO, 17, 100.00));
+        alunos.add(new Aluno("Augustus Schwartzmann", Sexo.MASCULINO, 50, 98.15));
+        alunos.add(new Aluno("Marcos Aurelius", Sexo.MASCULINO, 23, 68.22));
+        alunos.add(new Aluno("Elizabeth Windsor", Sexo.FEMININO, 14, 87.33));
+        alunos.add(new Aluno("Margaret Thatcher", Sexo.FEMININO, 12, 64.50));
+        alunos.add(new Aluno("Julius Cæsaer", Sexo.MASCULINO, 15, 69.80));
+        alunos.add(new Aluno("Friedrich Hohenzollern", Sexo.MASCULINO, 18, 76.55));
+        alunos.add(new Aluno("Rogerinho das Águas", Sexo.MASCULINO, 21, 5.00));
+        alunos.add(new Aluno("Alfredo Mercúrio", Sexo.MASCULINO, 11, 5.00));
+
+        for (Aluno aluno : alunos) {
+            System.out.printf("\"%s\"; %s; %d; %f\n", aluno.nome, aluno.sexo, aluno.idade, aluno.notaFinal);
+        }
+
+    }
+
+
+}
+
+
+Classe "Aluno" da Questão 7:
+
+package exercicioArrList;
+
+
+enum Sexo {
+    MASCULINO, FEMININO;
+}
+
+public class Aluno {
+
+    
+    String nome;
+    Sexo sexo;
+    int idade;
+    double notaFinal;
+    String nomePai;
+
+    public Aluno(String nome, Sexo sexo, int idade, double notaFinal) {
+        this.nome = nome;
+        this.sexo = sexo;
+        this.idade = idade;
+        this.notaFinal = notaFinal;
+    }
+
+}
+
